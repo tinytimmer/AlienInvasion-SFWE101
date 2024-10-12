@@ -43,7 +43,6 @@ class AlienInvasion:
         pygame.mixer.music.play(loops =- 1) #this means it loops infintely
 
         #found music and sound effect at: https://uppbeat.io/
-
         ##ADD CT - set starting music to be played during gameplay
  
         self.ship = Ship(self) 
