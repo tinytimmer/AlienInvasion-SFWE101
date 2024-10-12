@@ -125,7 +125,6 @@ class AlienInvasion:
         # Check for any bullets that have hit aliens.  If so, get rid of the bullet and alien 
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True) 
 
-
         ##ADD CT - if alien is hit, then add 1 to the overall score
         if collisions:
             #add 1 to the score
@@ -215,6 +214,7 @@ class AlienInvasion:
             sleep (0.5) 
         else: 
             self.stats.game_active = False 
+            
  
     def _check_aliens_bottom(self): 
         #  Check if any aliens have reached the bottom of the screen 
