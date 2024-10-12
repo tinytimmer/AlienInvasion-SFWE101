@@ -11,6 +11,7 @@ class Ship:
         self.screen_rect = ai_game.screen.get_rect() 
  
     # Load the ship image and gets its rectangle 
+    ##ADD CT - found new ship sprite and readjusted size myself. here is the site I found it on: https://opengameart.org/content/modular-ships
         self.image = pygame.image.load('images/modular_ships_blue.png') 
         self.rect = self.image.get_rect() 
  

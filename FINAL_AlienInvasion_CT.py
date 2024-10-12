@@ -58,15 +58,15 @@ class AlienInvasion:
             self._update_screen() 
 
 
-    ##ADD CT - Display the score and number of lives left on screen
+    ##ADD CT - Display the score and number of lives left on screen, using a different font
     def display_score(self, x, y):
         self.font = pygame.font.Font('images/ATROX.TTF', 40)
-        score = self.font.render('score:' + str(self.stats.score), True, (255,255,255))
+        score = self.font.render('Score:' + str(self.stats.score), True, (255,255,255))
         self.screen.blit(score, (x,y))
 
     def display_lives(self, x, y):
         self.font = pygame.font.Font('images/ATROX.TTF', 40)
-        lives = self.font.render('ships left:' + str(self.stats.ships_left), True, (255,255,255))
+        lives = self.font.render('Ships Left:' + str(self.stats.ships_left), True, (255,255,255))
         self.screen.blit(lives, (x,y))
     ##ADD CT - Display the score and number of lives left on screen, using a different font
 
@@ -214,7 +214,16 @@ class AlienInvasion:
             sleep (0.5) 
         else: 
             self.stats.game_active = False 
-            
+            self._game_over()
+
+
+    ##ADD CT - added a dispaly stating game over, player can only quit the game
+    def _game_over(self):
+        # Display Game Over message and replay button inside the rectangle
+        self._draw_text("Game Over", 72, (self.settings.screen_width // 2, self.settings.screen_height // 2 - 50), (255, 9, 0))
+        pygame.display.flip()
+
+    ##ADD CT - added a game over screen, player can only quit the game
  
     def _check_aliens_bottom(self): 
         #  Check if any aliens have reached the bottom of the screen 

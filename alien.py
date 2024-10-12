@@ -10,7 +10,8 @@ class Alien(Sprite):
         self.screen = ai_game.screen 
         self.settings = ai_game.settings 
  
-        # Load the alien image and set its rect attribute. 
+        # Load the alien image and set its rect attribute.
+        ##ADD CT - found new alien sprite and readjsuted size myself. here is the site I found it on: https://opengameart.org/content/alien-sprite-sheet
         self.image = pygame.image.load('images/aliensprite_orange.png') 
         self.rect = self.image.get_rect() 
  
