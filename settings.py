@@ -12,7 +12,7 @@ class Settings:
         self.ship_speed = 3 
         self.ship_limit = 3 
  
-        # Bullet settings - dark grey bullets that a re 3 pixels wide and 15 pixels high.  Bullets travel slower than the ship.
+        # Bullet settings - dark grey bullets that are 3 pixels wide and 15 pixels high.  Bullets travel slower than the ship.
         ## CT - changed the color of the bullets to red to see them better on the dark background & made them faster
         self.bullet_speed = 15 
         self.bullet_width = 3 
@@ -22,7 +22,7 @@ class Settings:
         self.bullets_allowed = 3 
  
         # alien settings 
-        self.alien_speed = 5
+        self.alien_speed = 4
         self.fleet_drop_speed = 10 
         # fleet direction of 1 represents right; -1 represents left. 
         self.fleet_direction = 1 

@@ -12,7 +12,7 @@ class Alien(Sprite):
  
         # Load the alien image and set its rect attribute.
         ##ADD CT - found new alien sprite and readjsuted size myself. here is the site I found it on: https://opengameart.org/content/alien-sprite-sheet
-        self.image = pygame.image.load('images/aliensprite_orange.png') 
+        self.image = pygame.image.load('images/aliensprite_orange_test2.png') 
         self.rect = self.image.get_rect() 
  
         # Start each new alien near the top left of the screen. 

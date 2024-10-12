@@ -12,7 +12,7 @@ class Ship:
  
     # Load the ship image and gets its rectangle 
     ##ADD CT - found new ship sprite and readjusted size myself. here is the site I found it on: https://opengameart.org/content/modular-ships
-        self.image = pygame.image.load('images/modular_ships_blue.png') 
+        self.image = pygame.image.load('images/modular_ships_blue2.png') 
         self.rect = self.image.get_rect() 
  
     # Start each new ship at the bottom of the center of the screen 

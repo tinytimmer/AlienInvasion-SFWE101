@@ -33,9 +33,18 @@ class AlienInvasion:
         #self.bg_color = (139, 131, 126) 
 
         ##ADD CT - set starry background to the size of the display screen
-        self.bg_image = pygame.image.load('images/starfield.png')
+        self.bg_image = pygame.image.load('images/starfield_bg.jpg')
         self.bg_image = pygame.transform.scale(self.bg_image, self.screen.get_size())
+        #background found at: https://www.freepik.com/search?color=black&format=search&last_filter=color&last_value=black&query=video+game+starry+sky+background+8+bit&selection=1
         ##ADD CT - to adjust the size of the image to the size of the display I used self.screen.get_size() to get the two values needed to correctly adjust the image when using function above
+
+        ##ADD CT - set starting music to be played during gameplay
+        self.space_music = pygame.mixer.music.load('images/alteration-gamemusic.mp3')
+        pygame.mixer.music.play(loops =- 1) #this means it loops infintely
+
+        #found music and sound effect at: https://uppbeat.io/
+
+        ##ADD CT - set starting music to be played during gameplay
  
         self.ship = Ship(self) 
         self.bullets = pygame.sprite.Group() 
@@ -63,12 +72,14 @@ class AlienInvasion:
         self.font = pygame.font.Font('images/ATROX.TTF', 40)
         score = self.font.render('Score:' + str(self.stats.score), True, (255,255,255))
         self.screen.blit(score, (x,y))
+        #ttf file found at this website: https://fontmeme.com/fonts/atrox-font/
 
     def display_lives(self, x, y):
         self.font = pygame.font.Font('images/ATROX.TTF', 40)
         lives = self.font.render('Ships Left:' + str(self.stats.ships_left), True, (255,255,255))
         self.screen.blit(lives, (x,y))
     ##ADD CT - Display the score and number of lives left on screen, using a different font
+
 
     def _check_events(self): 
         #Respond to keypresses and mouse events. 
@@ -214,17 +225,16 @@ class AlienInvasion:
             sleep (0.5) 
         else: 
             self.stats.game_active = False 
-            self._game_over()
+            #game is done, player must hit Q to stop, no replay
 
+            ##ADD CT - stopped main game music and added a gameover sound effect to play once, no loop
+            pygame.mixer.music.stop()
+            self.gameover_sound = pygame.mixer.Sound('images/gameover-retroarcade.mp3')
+            self.gameover_sound.play()
+            ##ADD CT - stopped main game music and added a gameover sound effect to play once, no loop
 
-    ##ADD CT - added a dispaly stating game over, player can only quit the game
-    def _game_over(self):
-        # Display Game Over message and replay button inside the rectangle
-        self._draw_text("Game Over", 72, (self.settings.screen_width // 2, self.settings.screen_height // 2 - 50), (255, 9, 0))
-        pygame.display.flip()
+            
 
-    ##ADD CT - added a game over screen, player can only quit the game
- 
     def _check_aliens_bottom(self): 
         #  Check if any aliens have reached the bottom of the screen 
         screen_rect = self.screen.get_rect() 
